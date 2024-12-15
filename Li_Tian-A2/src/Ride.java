@@ -1,5 +1,7 @@
 import java.util.LinkedList;
 import java.util.Iterator;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Ride implements RideInterface {
     private String rideName;
@@ -136,5 +138,10 @@ public class Ride implements RideInterface {
                 System.out.println(v.getName() + " - " + v.getAge() + " years old");
             }
         }
+    }
+    // 创建排序方法
+    public void sortRideHistory(Comparator<Visitor> comparator) {
+        Collections.sort(history, comparator);
+        System.out.println("The historical records of amusement facilities have been sorted.");
     }
 }

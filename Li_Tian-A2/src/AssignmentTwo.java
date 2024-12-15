@@ -3,6 +3,7 @@ public class AssignmentTwo {
         AssignmentTwo assignment = new AssignmentTwo();
         assignment.partThree();  // 调用 partThree 方法
         assignment.partFourA();
+        assignment.partFourB();
     }
     public void partThree(){
         System.out.println("Part 3");
@@ -64,8 +65,39 @@ public class AssignmentTwo {
         ride.PrintRideHistory();
         System.out.println("——————————————————————————————————————————————————————————————————————————————————");
     }
-    public void partFourB(){ }
+    public void partFourB(){
+        System.out.println("Part 4B");
+        // 创建一个新的 Ride 对象
+        Ride ride = new Ride("Ferris Wheel", 10, null); // 这里操作员设为 null
+
+        // 创建至少 5 个 Visitor 对象并添加到历史记录
+        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", 1001);
+        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "General", 1002);
+        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", 1003);
+        Visitor visitor4 = new Visitor("David", 35, "5566778899", "General", 1004);
+        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "Student", 1005);
+
+        // 添加访客到历史记录
+        ride.addVisitorToHistory(visitor1);
+        ride.addVisitorToHistory(visitor2);
+        ride.addVisitorToHistory(visitor3);
+        ride.addVisitorToHistory(visitor4);
+        ride.addVisitorToHistory(visitor5);
+
+        // 打印原始的历史记录
+        System.out.println("Original historical records of amusement facilities:");
+        ride.PrintRideHistory();
+
+        // 使用 VisitorComparator 排序
+        VisitorComparator comparator = new VisitorComparator();
+        ride.sortRideHistory(comparator);
+
+        // 打印排序后的历史记录
+        System.out.println("\nSorted amusement facility history:");
+        ride.PrintRideHistory();
+        System.out.println("——————————————————————————————————————————————————————————————————————————————————");
+    }
     public void partFive(){ }
     public void partSix(){ }
     public void partSeven(){ }
-}
+}   
