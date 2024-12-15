@@ -1,20 +1,20 @@
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Iterator;
 
 public class Ride implements RideInterface {
     private String rideName;
     private int capacity;
-    private Employee rideOperator;  // 操作游乐设施的员工
+    private Employee rideOperator;  // 游乐设施的操作员
 
     // 用于存储等待的访客队列
-    private Queue<Visitor> queue;
+    private LinkedList<Visitor> queue;
 
     // 用于存储已经乘坐过游乐设施的访客历史记录
     private LinkedList<Visitor> history;
 
     // 默认构造函数
     public Ride() {
-        this.rideName = "Unknown Ride";
+        this.rideName = "Unknown amusement facilities";
         this.capacity = 0;
         this.rideOperator = null;
         this.queue = new LinkedList<>();
@@ -30,7 +30,7 @@ public class Ride implements RideInterface {
         this.history = new LinkedList<>();
     }
 
-    // Getters and Setters
+    // Getters 和 Setters
     public String getRideName() {
         return rideName;
     }
@@ -59,12 +59,12 @@ public class Ride implements RideInterface {
     @Override
     public void addVisitorToQueue(Visitor v) {
         if (queue.size() >= capacity) {
-            System.out.println("The ride is at full capacity. Cannot add " + v.getName() + " to the queue.");
+            System.out.println("The amusement facilities are full and cannot be used " + v.getName() + " add to queue.");
         } else if (queue.contains(v)) {
             System.out.println(v.getName() + " is already in the queue.");
         } else {
             queue.add(v);  // 将访客添加到队列
-            System.out.println(v.getName() + " has been added to the queue.");
+            System.out.println(v.getName() + "already joined the queue.");
         }
     }
 
@@ -73,7 +73,7 @@ public class Ride implements RideInterface {
         if (queue.remove(v)) {
             System.out.println(v.getName() + " has been removed from the queue.");
         } else {
-            System.out.println(v.getName() + " is not in the queue.");
+            System.out.println(v.getName() + "is not in the queue.");
         }
     }
 
@@ -93,29 +93,48 @@ public class Ride implements RideInterface {
     public void runOneCycle() {
         if (!queue.isEmpty()) {
             Visitor visitor = queue.poll();  // 获取并移除队列中的第一个访客
-            System.out.println(visitor.getName() + " is now riding.");
+            System.out.println(visitor.getName() + " is currently playing.");
             addVisitorToHistory(visitor);  // 将访客添加到历史记录
         } else {
-            System.out.println("No visitors in the queue.");
+            System.out.println("There are no visitors in the queue.");
         }
     }
 
     @Override
     public void addVisitorToHistory(Visitor v) {
         if (!history.contains(v)) {  // 确保历史记录中不重复添加访客
-            history.add(v);  // 将访客添加到历史记录中
-            System.out.println(v.getName() + " has been added to the ride history.");
+            history.add(v);  // 将访客添加到历史记录
+            System.out.println(v.getName() + " has been added to the historical records of amusement facilities.");
         }
     }
 
     @Override
     public boolean checkVisitorFromHistory(Visitor v) {
         if (history.contains(v)) {
-            System.out.println(v.getName() + " has ridden the attraction.");
+            System.out.println(v.getName() + " has already taken this amusement ride.");
             return true;
         } else {
-            System.out.println(v.getName() + " has not ridden the attraction.");
+            System.out.println(v.getName() + " has never taken this amusement ride before.");
             return false;
+        }
+    }
+
+    @Override
+    public int numberOfVisitors() {
+        return history.size();
+    }
+
+    @Override
+    public void PrintRideHistory() {
+        if (history.isEmpty()) {
+            System.out.println("No visitors have taken this amusement ride.");
+        } else {
+            System.out.println("Visitors who have already taken the amusement facilities:");
+            Iterator<Visitor> iterator = history.iterator();
+            while (iterator.hasNext()) {
+                Visitor v = iterator.next();
+                System.out.println(v.getName() + " - " + v.getAge() + " years old");
+            }
         }
     }
 }
