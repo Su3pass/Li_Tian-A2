@@ -58,8 +58,14 @@ public class Ride implements RideInterface {
     // 实现 RideInterface 中的方法
     @Override
     public void addVisitorToQueue(Visitor v) {
-        queue.add(v);  // 将访客添加到队列
-        System.out.println(v.getName() + " has been added to the queue.");
+        if (queue.size() >= capacity) {
+            System.out.println("The ride is at full capacity. Cannot add " + v.getName() + " to the queue.");
+        } else if (queue.contains(v)) {
+            System.out.println(v.getName() + " is already in the queue.");
+        } else {
+            queue.add(v);  // 将访客添加到队列
+            System.out.println(v.getName() + " has been added to the queue.");
+        }
     }
 
     @Override
@@ -78,7 +84,7 @@ public class Ride implements RideInterface {
         } else {
             System.out.println("Visitors in the queue:");
             for (Visitor v : queue) {
-                System.out.println(v.getName());
+                System.out.println(v.getName() + " - " + v.getAge() + " years old");
             }
         }
     }
@@ -96,8 +102,10 @@ public class Ride implements RideInterface {
 
     @Override
     public void addVisitorToHistory(Visitor v) {
-        history.add(v);  // 将访客添加到历史记录中
-        System.out.println(v.getName() + " has been added to the ride history.");
+        if (!history.contains(v)) {  // 确保历史记录中不重复添加访客
+            history.add(v);  // 将访客添加到历史记录中
+            System.out.println(v.getName() + " has been added to the ride history.");
+        }
     }
 
     @Override
