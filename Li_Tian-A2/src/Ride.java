@@ -7,6 +7,8 @@ public class Ride implements RideInterface {
     private String rideName;
     private int capacity;
     private Employee rideOperator;  // 游乐设施的操作员
+    private int maxRider;  // 每次循环最多能容纳的游客数
+    private int numOfCycles;  // 游乐设施运行的次数
 
     // 用于存储等待的访客队列
     private LinkedList<Visitor> queue;
@@ -21,6 +23,8 @@ public class Ride implements RideInterface {
         this.rideOperator = null;
         this.queue = new LinkedList<>();
         this.history = new LinkedList<>();
+        this.maxRider = 1;  // 默认每次循环最多 1 个游客
+        this.numOfCycles = 0;  // 初始时游乐设施未运行过
     }
 
     // 带参数的构造函数
@@ -30,6 +34,8 @@ public class Ride implements RideInterface {
         this.rideOperator = rideOperator;
         this.queue = new LinkedList<>();
         this.history = new LinkedList<>();
+        this.maxRider = maxRider;
+        this.numOfCycles = 0;
     }
 
     // Getters 和 Setters
