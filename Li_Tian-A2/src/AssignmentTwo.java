@@ -7,6 +7,7 @@ public class AssignmentTwo {
         assignment.partFourB();
         assignment.partFive();
         assignment.partSix();
+        assignment.partSeven();
     }
     public void partThree(){
         System.out.println("Part 3");
@@ -14,11 +15,11 @@ public class AssignmentTwo {
         Ride ride = new Ride("Ferris Wheel", 10, null);  // 这里将操作员设置为 null，因为没有给出Employee类的要求
 
         // 创建至少 5 个 Visitor 对象并添加到队列
-        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", 1001);
-        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "General", 1002);
-        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", 1003);
-        Visitor visitor4 = new Visitor("David", 35, "5566778899", "General", 1004);
-        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "Student", 1005);
+        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", "10:01");
+        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "General", "10:01");
+        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", "10:01");
+        Visitor visitor4 = new Visitor("David", 35, "5566778899", "General", "10:01");
+        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "Student", "10:01");
 
         // 将访客添加到队列
         ride.addVisitorToQueue(visitor1);
@@ -40,11 +41,11 @@ public class AssignmentTwo {
         Ride ride = new Ride("Ferris wheel", 10, null);  // 没有给出操作员的要求，所以这里传入 null
 
         // 创建至少 5 个 Visitor 对象并添加到队列
-        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", 1001);
-        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "普通", 1002);
-        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", 1003);
-        Visitor visitor4 = new Visitor("David", 35, "5566778899", "普通", 1004);
-        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "学生", 1005);
+        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", "10:01");
+        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "普通", "10:01");
+        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", "10:01");
+        Visitor visitor4 = new Visitor("David", 35, "5566778899", "普通", "10:01");
+        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "学生", "10:01");
 
         // 将访客添加到队列
         ride.addVisitorToQueue(visitor1);
@@ -74,11 +75,11 @@ public class AssignmentTwo {
         Ride ride = new Ride("Ferris Wheel", 10, null); // 这里操作员设为 null
 
         // 创建至少 5 个 Visitor 对象并添加到历史记录
-        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", 1001);
-        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "General", 1002);
-        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", 1003);
-        Visitor visitor4 = new Visitor("David", 35, "5566778899", "General", 1004);
-        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "Student", 1005);
+        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", "10:01");
+        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "General", "10:01");
+        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", "10:01");
+        Visitor visitor4 = new Visitor("David", 35, "5566778899", "General", "10:01");
+        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "Student", "10:01");
 
         // 添加访客到历史记录
         ride.addVisitorToHistory(visitor1);
@@ -107,16 +108,16 @@ public class AssignmentTwo {
         Ride ride = new Ride("Ferris Wheel", 10, rideOperator);  // 设置每次循环最多 3 位游客
 
         // 创建至少 10 个 Visitor 对象并添加到队列
-        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", 1001);
-        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "General", 1002);
-        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", 1003);
-        Visitor visitor4 = new Visitor("David", 35, "5566778899", "General", 1004);
-        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "Student", 1005);
-        Visitor visitor6 = new Visitor("Frank", 27, "7788990011", "VIP", 1006);
-        Visitor visitor7 = new Visitor("Grace", 23, "8899001122", "General", 1007);
-        Visitor visitor8 = new Visitor("Hannah", 32, "9900112233", "Student", 1008);
-        Visitor visitor9 = new Visitor("Ivy", 21, "1112233445", "VIP", 1009);
-        Visitor visitor10 = new Visitor("Jack", 29, "2233445566", "General", 1010);
+        Visitor visitor1 = new Visitor("Alice", 25, "1234567890", "VIP", "10:01");
+        Visitor visitor2 = new Visitor("Bob", 30, "0987654321", "General", "10:01");
+        Visitor visitor3 = new Visitor("Charlie", 28, "1122334455", "VIP", "10:01");
+        Visitor visitor4 = new Visitor("David", 35, "5566778899", "General", "10:01");
+        Visitor visitor5 = new Visitor("Eva", 22, "6677889900", "Student", "10:01");
+        Visitor visitor6 = new Visitor("Frank", 27, "7788990011", "VIP", "10:01");
+        Visitor visitor7 = new Visitor("Grace", 23, "8899001122", "General", "10:01");
+        Visitor visitor8 = new Visitor("Hannah", 32, "9900112233", "Student", "10:01");
+        Visitor visitor9 = new Visitor("Ivy", 21, "1112233445", "VIP", "10:01");
+        Visitor visitor10 = new Visitor("Jack", 29, "2233445566", "General", "10:01");
 
         // 将游客添加到队列
         ride.addVisitorToQueue(visitor1);
@@ -143,21 +144,35 @@ public class AssignmentTwo {
         System.out.println("——————————————————————————————————————————————————————————————————————————————————");
     }
     public void partSix(){
+        System.out.println("Part 6");
         // 创建一个新的 Ride 实例
         Ride ride = new Ride("Ferris Wheel", 10, new Employee("John", 40, "123-456-7890", "Operator", 5000));
 
         // Add 5 visitors to the ride history
-        ride.addVisitorToHistory(new Visitor("Alice", 25, "1234567890", "VIP", 1001));
-        ride.addVisitorToHistory(new Visitor("Grace", 23, "8899001122", "General", 1007));
-        ride.addVisitorToHistory(new Visitor("Ivy", 21, "1112233445", "VIP", 1009));
-        ride.addVisitorToHistory(new Visitor("Jack", 29, "2233445566", "General", 1010));
-        ride.addVisitorToHistory(new Visitor("Eva", 22, "6677889900", "Student", 1005));
+        ride.addVisitorToHistory(new Visitor("Alice", 25, "1234567890", "VIP", "10:01"));
+        ride.addVisitorToHistory(new Visitor("Grace", 23, "8899001122", "General", "10:01"));
+        ride.addVisitorToHistory(new Visitor("Ivy", 21, "1112233445", "VIP", "10:01"));
+        ride.addVisitorToHistory(new Visitor("Jack", 29, "2233445566", "General", "10:01"));
+        ride.addVisitorToHistory(new Visitor("Eva", 22, "6677889900", "Student", "10:01"));
 
         // 将历史记录导出到文件
         ride.exportRideHistory("ride_history.csv");
-
-
+        System.out.println("——————————————————————————————————————————————————————————————————————————————————");
 
     }
-    public void partSeven(){ }
+    public void partSeven(){
+        System.out.println("Part 7");
+
+        // 创建一个新的 Ride 实例
+        Ride ride = new Ride("Ferris Wheel", 10, new Employee("John", 40, "123-456-7890", "Operator", 5000));
+
+        // 从文件导入历史记录
+        ride.importRideHistory("ride_history.csv");
+
+        // 打印导入的访客数量
+        System.out.println("Number of visitors in the history: " + ride.numberOfVisitors());
+
+        // 打印所有导入的访客信息
+        ride.PrintRideHistory();
+        System.out.println("——————————————————————————————————————————————————————————————————————————————————"); }
 }   

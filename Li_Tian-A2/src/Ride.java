@@ -1,10 +1,8 @@
+import java.io.*;
 import java.util.LinkedList;
 import java.util.Iterator;
 import java.util.Collections;
 import java.util.Comparator;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
 public class Ride implements RideInterface {
     private String rideName;
@@ -165,6 +163,33 @@ public class Ride implements RideInterface {
             System.out.println("Ride history has been successfully exported to " + filename);
         } catch (IOException e) {
             System.out.println("An error occurred while exporting the ride history: " + e.getMessage());
+        }
+    }
+    public void importRideHistory(String filename) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                // 将每一行按逗号分割
+                String[] visitorData = line.split(",");
+
+                // 确保数据格式正确，避免数组越界
+                if (visitorData.length == 5) {
+                    String name = visitorData[0];
+                    int age = Integer.parseInt(visitorData[1]);
+                    String ticketType = visitorData[2];
+                    String entryTime = visitorData[3];
+                    String contactNumber = visitorData[4];
+
+                    // 创建新的 Visitor 对象并添加到历史记录中
+                    Visitor visitor = new Visitor(name, age, contactNumber, ticketType, entryTime);
+                    addVisitorToHistory(visitor);
+                } else {
+                    System.out.println("Invalid data format in file.");
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
         }
     }
 }
