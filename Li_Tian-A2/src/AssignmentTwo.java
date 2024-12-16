@@ -6,6 +6,7 @@ public class AssignmentTwo {
         assignment.partFourA();
         assignment.partFourB();
         assignment.partFive();
+        assignment.partSix();
     }
     public void partThree(){
         System.out.println("Part 3");
@@ -141,6 +142,22 @@ public class AssignmentTwo {
         ride.PrintRideHistory();
         System.out.println("——————————————————————————————————————————————————————————————————————————————————");
     }
-    public void partSix(){ }
+    public void partSix(){
+        // 创建一个新的 Ride 实例
+        Ride ride = new Ride("Ferris Wheel", 10, new Employee("John", 40, "123-456-7890", "Operator", 5000));
+
+        // Add 5 visitors to the ride history
+        ride.addVisitorToHistory(new Visitor("Alice", 25, "1234567890", "VIP", 1001));
+        ride.addVisitorToHistory(new Visitor("Grace", 23, "8899001122", "General", 1007));
+        ride.addVisitorToHistory(new Visitor("Ivy", 21, "1112233445", "VIP", 1009));
+        ride.addVisitorToHistory(new Visitor("Jack", 29, "2233445566", "General", 1010));
+        ride.addVisitorToHistory(new Visitor("Eva", 22, "6677889900", "Student", 1005));
+
+        // 将历史记录导出到文件
+        ride.exportRideHistory("ride_history.csv");
+
+
+
+    }
     public void partSeven(){ }
 }   

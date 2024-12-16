@@ -2,6 +2,9 @@ import java.util.LinkedList;
 import java.util.Iterator;
 import java.util.Collections;
 import java.util.Comparator;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Ride implements RideInterface {
     private String rideName;
@@ -149,5 +152,19 @@ public class Ride implements RideInterface {
     public void sortRideHistory(Comparator<Visitor> comparator) {
         Collections.sort(history, comparator);
         System.out.println("The historical records of amusement facilities have been sorted.");
+    }
+    public void exportRideHistory(String filename) {
+        // Use BufferedWriter to write to a file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+            // Iterate over the history list and write each visitor's details
+            for (Visitor v : history) {
+                String line = v.getName() + "," + v.getAge() + "," + v.getTicketType() + "," + v.getEntryTime() + "," + v.getContactNumber();
+                writer.write(line);
+                writer.newLine();  // Add a new line after each record
+            }
+            System.out.println("Ride history has been successfully exported to " + filename);
+        } catch (IOException e) {
+            System.out.println("An error occurred while exporting the ride history: " + e.getMessage());
+        }
     }
 }
